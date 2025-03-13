@@ -91,18 +91,18 @@ WSGI_APPLICATION = 'padipu.wsgi.application'
 
 
 # filepath: c:\Users\brind\OneDrive\Documents\Cloud-Computing\Semester One\CPP-Project\padipu\seyali\settings.py
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Use 'django.db.backends.postgresql' for PostgreSQL
-        'NAME': 'database-1',
+        'NAME': 'seyali_db',
         'USER': 'seyaliadmin',
         'PASSWORD': 'Xyzzyspoon1993',
         'HOST': 'database-1.c3yua1nmzotj.us-east-1.rds.amazonaws.com',  # e.g., your-db-instance-identifier.c9akciq32.rds.amazonaws.com
         'PORT': '3306',  # Default port for MySQL. Use '5432' for PostgreSQL.
     }
-}"""
+}
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Seyali_db',
@@ -111,7 +111,7 @@ DATABASES = {
         'HOST': 'localhost',  # or IP address if using a remote server
         'PORT': '3306',
     }
-}
+}"""
 
 """DATABASES = {
     'default': {
