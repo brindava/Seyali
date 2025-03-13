@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login</h2>
+
+<!-- Display error message if credentials are wrong -->
+{% if form.errors %}
+    <p style="color: red;">Unauthorized user. Please check your username and password.</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <label>Username:</label>
+    <input type="text" name="username">
+    <label>Password:</label>
+    <input type="password" name="password">
+    <button type="submit">Login</button>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+</form>
+{% endblock %}

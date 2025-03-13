@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ quiz.title }}</h2>
+<p>{{ quiz.description }}</p>
+<ul>
+    {% for question in quiz.questions.all %}
+        <li>{{ question.text }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'quiz_list' %}" class="btn btn-primary">Back to Quizzes</a>
+{% endblock %}

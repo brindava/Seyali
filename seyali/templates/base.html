@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Padipu</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'seyali/css/content_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'seyali/css/login.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        {% if user.is_authenticated %}
+            <a href="{% url 'content_list' %}">Home</a>
+            {% if user.is_teacher %}
+                <a href="{% url 'content_upload' %}" class="upload-button">Upload</a>
+            {% endif %}
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

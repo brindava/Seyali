@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load youtube_extras %}
+
+{% block content %}
+<div class="container">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <h2>Courses</h2>
+    {% if contents %}
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Body</th>
+                    <th>Uploaded By</th>
+                    <th>Uploaded At</th>
+                    <th>File</th>
+                    <th>Quiz</th>
+                    {% if user.is_teacher %}
+                        <th>Actions</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+            {% for content in contents %}
+                <tr>
+                    <td>{{ content.title }}</td>
+                    <td>{{ content.description }}</td>
+                    <td>{{ content.body }}</td>
+                    <td>{{ content.uploaded_by.username }}</td>
+                    <td>{{ content.uploaded_at }}</td>
+                    <td>
+                        {% if content.file %}
+                            <a href="{{ content.file.url }}">{{ content.file.name }}</a>
+                        {% else %}
+                            No file uploaded
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if content.quiz %}
+                            <a href="{% url 'take_quiz' content.quiz.id %}" class="action-button quiz-button">Take Quiz</a>
+                        {% else %}
+                            No quiz available
+                        {% endif %}
+                    </td>
+                    {% if user.is_teacher %}
+                        <td class="actions">
+                            <form method="post" action="{% url 'content_delete' content.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="action-button delete-button">Delete</button>
+                            </form>
+                            <a href="{% url 'content_edit' content.id %}" class="action-button edit-button">Edit</a>
+                        </td>
+                    {% endif %}
+                </tr>
+                {% if content.youtube_url %}
+                    <tr>
+                        <td colspan="8">
+                            <strong>YouTube Video:</strong>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ content.youtube_url|youtube_id }}" frameborder="0" allowfullscreen></iframe>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No content available.</p>
+    {% endif %}
+</div>
+{% endblock %}

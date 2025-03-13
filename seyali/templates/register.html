@@ -1,0 +1,17 @@
+<head>
+    {% load static %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'seyali/css/login.css' %}">
+</head> 
+<body>
+
+    <div>
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

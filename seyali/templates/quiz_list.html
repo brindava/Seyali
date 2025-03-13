@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Quizzes</h2>
+<a href="{% url 'quiz_create' %}" class="btn btn-primary">Create Quiz</a>
+<ul>
+    {% for quiz in quizzes %}
+        <li>
+            <a href="{% url 'quiz_detail' quiz.id %}">{{ quiz.title }}</a>
+            <a href="{% url 'quiz_edit' quiz.id %}" class="btn btn-secondary">Edit</a>
+            <form method="post" action="{% url 'quiz_delete' quiz.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

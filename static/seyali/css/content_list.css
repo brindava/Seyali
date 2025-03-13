@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@1,700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+    margin: 0;
+    padding: 20px; /* Add padding to avoid content being hidden behind the navbar */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.navbar a {
+    color: #00FF00; /* Fluorescent green for links */
+    text-decoration: none;
+    padding: 10px;
+}
+
+.logout-button .upload-button {
+    background-color: #FF0000; /* Red for logout button */
+    color: #fff;
+    padding: 5px 10px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em; /* Consistent font size */
+}
+
+h2 {
+    color: #00FF00; /* Fluorescent green for headings */
+    text-align: center;
+    margin-top: 80px; /* Adjust margin to account for fixed navbar */
+    font-size: 2.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.content-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background for table */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.content-table th, .content-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #000000; /* Black border for table rows */
+}
+
+.content-table th {
+    background-color: #000000; /* Black background for table headers */
+    color: #00FF00; /* Fluorescent green for table headers */
+    font-weight: 600;
+}
+
+.content-table td {
+    color: #000000; /* Black text for table content */
+}
+
+.content-table tr:hover {
+    background-color: #f1f1f1; /* Slightly lighter background on hover */
+}
+
+.content-table td a {
+    color: #00FFFF; /* Fluorescent blue for links */
+    text-decoration: none;
+}
+
+.content-table td a:hover {
+    text-decoration: underline;
+}
+
+iframe {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions form, .actions a {
+    display: inline-block;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    color: #00FFFF; /* Fluorescent blue for buttons */
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    font-size: 1em;
+}
+
+.delete-button {
+    color: #FF0000; /* Red for delete button */
+    padding: 5px 10px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em; /* Consistent font size */
+}
+
+.edit-button {
+    color: #00FF00; /* Fluorescent green for edit button */
+    padding: 5px 10px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em; /* Consistent font size */
+}
